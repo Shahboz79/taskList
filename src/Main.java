@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -29,14 +30,18 @@ public class Main {
 
                 TaskService taskService=new TaskService();
                 System.out.println(taskService.create(new TaskDTO(title, content)));
+                menu();
                 break;
 
             case 2:
-                System.out.println(new TaskService().getActiveTaskList());
+                List<Task> activeTaskList = new TaskService().getActiveTaskList();
+                System.out.println(activeTaskList);
+                menu();
                 break;
 
             case 3:
                 System.out.println(new TaskService().getFinishedTaskList());
+                menu();
                 break;
 
             case 4:
@@ -54,13 +59,14 @@ public class Main {
 
                 TaskService utaskService=new TaskService();
                 System.out.println(utaskService.update(new TaskDTO(id, uTitle, uContent)));
+                menu();
                 break;
             case 5:
                 Scanner dId= new Scanner(System.in);
                 System.out.print("Enter Delete Task Id: ");
                 Integer delId=dId.nextInt();
-
                 System.out.println(new TaskService().delete(delId));
+                menu();
                 break;
             case 6:
                 Scanner fId= new Scanner(System.in);

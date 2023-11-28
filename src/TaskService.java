@@ -68,7 +68,7 @@ public class TaskService {
                         resultSet.getString("content"),
                         TaskStatus.valueOf(resultSet.getString   ("status")),
                         resultSet.getTimestamp("created_date").toLocalDateTime(),
-                        null);
+                        resultSet.getTimestamp("finished_date").toLocalDateTime());
                 tasks.add(task);
 
             }
